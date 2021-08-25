@@ -1,4 +1,4 @@
-{{- $highlightColor := .Site.Params.style.vars.highlightColor | default (.Site.Params.highlightColor | default "#e22d30") -}}
+{{- $highlightColor := .Site.Params.style.vars.highlightColor | default (.Site.Params.highlightColor | default "#000") -}}
 
 {{- $fontSans := `"Open Sans", Helvetica, Arial, sans-serif` -}}
 {{- $fontMono := `SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace` -}}
@@ -195,12 +195,13 @@ h6 {
 }
 
 a {
-	color: #000;
+	color: black;
 	text-decoration: none;
 }
 
 a:hover {
 	color: {{ $highlightColor }};
+	color: blue;
 }
 
 hr {
@@ -385,11 +386,12 @@ select {
 
 /* Header */
 .header {
-	background: #fff;
+	/* background: #fff; */
 }
 
 .logo {
 	padding: 25px;
+	background-image: url("/img/banner.png");
 }
 
 .logo__link {
@@ -427,7 +429,7 @@ select {
 	font-size: 2rem;
 	font-weight: 700;
 	line-height: 1;
-	color: #000;
+	color: #fff;
 }
 
 .logo__tagline {
@@ -439,6 +441,7 @@ select {
 	font-weight: 700;
 	line-height: 1;
 	color: {{ $highlightColor }};
+	color: white;
 	border-top: 1px solid #ebebeb;
 }
 
@@ -660,7 +663,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	width: 100%;
 }
 
-.content a,
+.content a { color: blue; },
 .warning a,
 .authorbox__description a {
 	font-weight: 700;
@@ -802,24 +805,20 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	list-style: none;
 }
 
-.toc__menu li li a {
+.toc__menu ul ul ul a {
 	padding-left: 25px;
 }
 
-.toc__menu li li li a {
+.toc__menu ul ul ul ul a {
 	padding-left: 45px;
 }
 
-.toc__menu li li li li a {
+.toc__menu ul ul ul ul ul a {
 	padding-left: 65px;
 }
 
-.toc__menu li li li li li a {
+.toc__menu ul ul ul ul ul ul a {
 	padding-left: 85px;
-}
-
-.toc__menu li li li li li li a {
-	padding-left: 105px;
 }
 
 .toc__menu li {
@@ -966,6 +965,23 @@ img {
 	max-width: 100%;
 	height: auto;
 	vertical-align: bottom;
+}
+
+article img { 
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+}
+
+article figcaption {
+	text-align: center;
+}
+
+img.project_image {
+	float: left;
+	margin-right: 2%;
+	width: 30%;
 }
 
 iframe,
@@ -1122,6 +1138,19 @@ textarea {
 .widget-search__field:active,
 .widget-search__field:focus {
 	cursor: text;
+}
+
+/* Links widget */
+a.interesting_link {
+	color: blue;
+}
+
+.widget-text li {
+	padding-top: 10px;
+}
+
+.widget-text li:first-child {
+	padding-top: 0px;
 }
 
 /* Social widget */

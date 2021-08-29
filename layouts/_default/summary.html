@@ -1,13 +1,4 @@
 <article class="list__item post">
-	{{- if .Params.thumbnail }}
-        	{{- if .Params.thumbnail_resume | default true }}
-        	<figure class="list__thumbnail">
-            		<a href="{{ .Permalink }}">
-                		<img src="{{ .Params.thumbnail | relURL }}" alt="{{ .Title }}" />
-            		</a>
-        	</figure>
-        	{{- end }}
-	{{- end }}
 	<header class="list__header">
 		<h3 class="list__title post__title ">
 			<a href="{{ .RelPermalink }}" rel="bookmark">
@@ -21,6 +12,15 @@
 		<div class="list__meta meta">{{ . }}</div>
 		{{- end }}
 	</header>
+	{{- if .Params.thumbnail }}
+        	{{- if .Params.thumbnail_resume | default true }}
+        	<figure class="list__thumbnail">
+            		<a href="{{ .Permalink }}">
+                		<img src="{{ .Params.thumbnail | relURL }}" alt="{{ .Title }}" />
+            		</a>
+        	</figure>
+        	{{- end }}
+	{{- end }}
 	<div class="content list__excerpt post__content clearfix">
 		{{ .Summary }}
 	</div>

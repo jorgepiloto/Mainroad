@@ -12,7 +12,7 @@
 		<div class="list__meta meta">{{ . }}</div>
 		{{- end }}
 	</header>
-	{{- if .Params.thumbnail }}
+	{{- if (and (.Params.thumbnail) (.Site.Params.show_thumbnails)) }}
         	{{- if .Params.thumbnail_resume | default true }}
         	<figure class="list__thumbnail">
             		<a href="{{ .Permalink }}">
